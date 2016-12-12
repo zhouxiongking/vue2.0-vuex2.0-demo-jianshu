@@ -1,6 +1,6 @@
-# vue-demo-jianshu
+# vue2.0-demo-jianshu
 
-> vue demo
+> vue2.0 demo
 
 ## Build Setup
 
