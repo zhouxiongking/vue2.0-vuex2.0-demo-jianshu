@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import Vuerify from 'vuerify'
 
 import App from './App'
 import ArticleList from './components/ArticleList.vue'
@@ -15,6 +16,7 @@ import writeArticle from './components/WriteArticle.vue'
 
 import store from '../vuex/store'
 
+Vue.use(Vuerify)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
@@ -54,11 +56,6 @@ const router = new VueRouter({
     }]
 })
 
-// 默认重定向到article/hot下
-// router.push({
-//     path: '/home/article/hot'
-// })
-
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
@@ -66,3 +63,4 @@ new Vue({
     store,
     render: h => h(App)
 })
+

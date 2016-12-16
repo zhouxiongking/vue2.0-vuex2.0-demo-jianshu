@@ -7,7 +7,7 @@
       <a  :class="{active: loginway == 'register'}"
           @click="changeLogin('register')">&nbsp;&nbsp;&nbsp;&nbsp;注册&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
     <div class="login-input" v-if="loginway === 'login' ">
-      <form class="form_login" accept-charset="UTF-8" method="post">
+      <form name="formLogin" class="form_login" accept-charset="UTF-8" method="post">
         <div class="username">
           <span class="span1"><i class="fa fa-user"></i></span>
           <input type="text" name="register_name" placeholder="选一个昵称" class="span2">
@@ -29,20 +29,24 @@
       </form>
     </div>
     <div class="login-input" v-if="loginway === 'register'">
-      <form class="form_register" accept-charset="UTF-8" method="post">
+      <form name="formRegister" class="form_register" accept-charset="UTF-8" method="post">
         <div class="email">
           <span class="span1"><i class="fa fa-envelope-o"></i></span>
-          <input type="text" name="email_adress" placeholder="你的邮件地址" class="span2">
+          <input type="email" name="email" v-model="user.email" required
+                 placeholder="你的邮件地址" class="span2">
         </div>
         <div class="username">
           <span class="span1"><i class="fa fa-user"></i></span>
-          <input type="text" name="sign_in[name]" placeholder="手机号码/电子邮件" class="span2">
+          <input type="text" name="telephone" v-model="user.telephone" required
+                 placeholder="手机号码" class="span2">
         </div>
         <div class="password">
           <span class="span1"><i class="fa fa-unlock-alt"></i></span>
-          <input type="password" name="sign_in[password]" placeholder="密码" class="span2">
+          <input type="password" name="password" v-model="user.password" required
+                 placeholder="密码" class="span2">
         </div>
-        <button class="register-btn btn" type="submit"><span>注册</span></button>
+        <div></div>
+        <button class="register-btn btn" type="button" @click="register()"><span>注册</span></button>
         <p class="register_text">点击 “注册” 或下方社交登录按钮，即表示您同意并愿意遵守简书 <a href="#">用户协议</a> 和 <a href="#">隐私政策</a> 。</p>
       </form>
     </div>
@@ -63,7 +67,8 @@
     export default {
         data () {
             return {
-                checked: true
+                checked: true,
+                user: {}
             }
         },
         computed: mapGetters({
@@ -72,6 +77,12 @@
         methods: {
             changeLogin (loginway) {
                 this.$store.dispatch('changeLoginway', loginway)
+            },
+            register () {
+                console.log('this ic')
+            },
+            validateTel (value) {
+                console.log(value)
             }
         },
         mounted () {

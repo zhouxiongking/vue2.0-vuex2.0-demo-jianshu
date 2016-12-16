@@ -7,6 +7,7 @@ import Vuex from 'vuex'
 
 import * as getters from './getters'
 import * as actions from './actions'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
@@ -221,26 +222,6 @@ const state = {
             bg: 'url(../static/images/bonus_12.jpg)'
         }
     ]
-}
-
-const mutations = {
-    DISPLAY_ARTICLES (state, type) {
-        state.show = type
-        state.articles = state[type + 'Articles']
-    },
-    DISPLAY_TOPIC (state, type) {
-        state.show = type
-        state.topicArticles = state[type + 'TopicArticles']
-    },
-    SORT_CONTENT (state, type) {
-
-    },
-    CHANGE_LOGINWAY (state, loginway) {
-        state.loginway = loginway
-    },
-    CHANGE_ARTICLEFLAG (state, flag) {
-        state.articleFlag = flag
-    }
 }
 
 export default new Vuex.Store({
