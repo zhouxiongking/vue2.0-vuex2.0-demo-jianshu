@@ -28,6 +28,7 @@
                       {{art.content_4}}<br>
                       {{art.content_5}}<br>
                       {{art.content_6}}<br>
+                      {{art.content_7}}<br>
                     </div>
                 </div>
                 <div class="author"></div>

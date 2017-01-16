@@ -2,10 +2,10 @@
     <div>
         <div class="showbar">
             <div class="cover-image_2"></div>
-            <div class="text" style="text-shadow:1px 1px 1px #000000">
+            <div class="text">
                 <h1>专题</h1>
                 <h3>让思想汇聚，流传</h3>
-                <p style="font-size:14px;margin-bottom:5px">专题内容由多位写作者提供</p>
+                <p class="top-tip">专题内容由多位写作者提供</p>
                 <a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;新建专题</a>
             </div>
         </div>
@@ -52,3 +52,14 @@
         }
     }
 </script>
+
+<style>
+  .text{
+    text-shadow:1px 1px 1px #000000;
+  }
+  .top-tip {
+    font-size:14px;
+    margin-bottom:5px
+  }
+
+</style>

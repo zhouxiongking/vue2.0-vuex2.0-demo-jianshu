@@ -165,7 +165,7 @@ b {
 
 .article-page {
   width: 56%;
-  height: 100%;
+  min-height: 1000px;
   right: 200px;
   position: absolute;
   background-color: #f3f3f3;

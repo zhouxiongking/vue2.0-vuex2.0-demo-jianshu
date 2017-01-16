@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import Vuerify from 'vuerify'
+
+import store from '../vuex/store'
 
 import App from './App'
 import ArticleList from './components/ArticleList.vue'
@@ -14,11 +15,12 @@ import Download from './components/Download.vue'
 import Article from './components/Article.vue'
 import writeArticle from './components/WriteArticle.vue'
 
-import store from '../vuex/store'
+import VueQuillEditor from 'vue-quill-editor'
 
-Vue.use(Vuerify)
 Vue.use(VueRouter)
 Vue.use(VueResource)
+
+Vue.use(VueQuillEditor)
 
 const router = new VueRouter({
     routes: [{

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-main">
         <div class="sidebar">
             <ul class="dropdown">
                 <li :class="{active: show === 'home'}" @click="show = 'home'">
@@ -48,7 +48,7 @@
             </transition>
         </div>
         <div class="rightbar" v-if="articleFlag">
-            <nav>
+            <nav v-if="!isLogin">
                 <ul class="nav-ul">
                     <li @click="changeLoginway('login')">
                         <router-link to="/login">
@@ -64,6 +64,11 @@
                     </li>
                 </ul>
             </nav>
+            <div v-if="isLogin" class="navbar-user">
+              <a class="avatar">
+                <img src="http://p1.meituan.net/dpnewvc/fd7179e374a7ff68a31921be7932c6c850161.jpg">
+              </a>
+            </div>
         </div>
     </div>
 </template>
@@ -78,12 +83,24 @@
           }
       },
       computed: mapGetters({
-          articleFlag: 'getArticleFlag'
+          articleFlag: 'getArticleFlag',
+          isLogin: 'getIsLogin'
       }),
       methods: {
           changeLoginway (loginway) {
               this.$store.dispatch('changeLoginway', loginway)
           }
+      },
+      mounted () {
+          // 发送请求,判断是否已经登录
+          this.$http.get('/user/isLogin').then(function (response) {
+              console.log(response.body)
+              if (response.body === '已登录') {
+                  this.$store.dispatch('changeIsLogin', true)
+              } else {
+                  this.$store.dispatch('changeIsLogin', false)
+              }
+          })
       }
   }
 </script>
@@ -96,7 +113,7 @@
   .display-enter, .display-leave-active {
     opacity: 0;
   }
-  .container{
+  .container-main{
     height: 100%;
   }
   .dropdown .active{
@@ -119,6 +136,28 @@
   }
   .sidebar .fa-mobile {
     font-size: 30px;
+  }
+  .navbar-user .avatar{
+    position: relative;
+    float: right;
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .avatar{
+    border-radius: 50%;
+  }
+  .avatar img{
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
   }
   @media screen and (max-width: 1300px){
     .home{
