@@ -4,21 +4,21 @@
             <li class="list" v-for="article in articles">
                 <p class="list-top">
                     <a href="#" class="author">
-                        <span>{{article.author}}</span>
+                        <span>{{article.nickname}}</span>
                     </a>
                     <span class="time">
-                        - {{article.time}}
+                        - {{article.publish_time}}
                     </span>
                 </p>
                 <h2 class="title">
-                    <router-link to="/article/123211">{{article.title}}</router-link>
+                    <router-link :to="{path: '/article/' + article.id}">{{article.title}}</router-link>
                 </h2>
-                <span class="small-text">阅读 {{article.read}}</span>
-                <span class="small-text">评论 {{article.comment}}</span>
-                <span class="small-text">喜欢 {{article.like}}</span>
-                <span class="small-text">打赏 {{article.pay}}</span>
+                <span class="small-text">阅读 {{article.read_count}}</span>
+                <span class="small-text">评论 {{article.comment_count}}</span>
+                <span class="small-text">喜欢 {{article.like_count}}</span>
+                <span class="small-text">打赏 {{article.reward_count}}</span>
                 <span class="image"
-                      :style="{ background: article.src, backgroundSize: '100%', backgroundRepeat: 'no-repeat' }"></span>
+                      :style="{'background': 'url(' + (article.picture_url || defaultUrl) + ')', backgroundSize: '100%', backgroundRepeat: 'no-repeat' }"></span>
             </li>
         </ul>
     </div>
@@ -28,12 +28,14 @@
     import { mapGetters } from 'vuex'
 
     export default {
+        data () {
+            return {
+                defaultUrl: 'https://p0.meituan.net/dpnewvc/3fa6b39cd8cf7b885614a60f792c89ff17972.jpg'
+            }
+        },
         computed: mapGetters({
             articles: 'getArticles'
-        }),
-        mounted () {
-            this.$store.dispatch('changeArticleFlag', true)
-        }
+        })
     }
 
 </script>

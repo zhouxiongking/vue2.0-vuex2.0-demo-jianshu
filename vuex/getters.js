@@ -14,3 +14,4 @@ export const getLoginway = state => state.loginway
 
 export const getArticleFlag = state => state.articleFlag
 
+export const getIsLogin = state => state.islogin

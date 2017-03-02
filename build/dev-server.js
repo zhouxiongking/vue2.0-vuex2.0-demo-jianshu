@@ -15,7 +15,22 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var app = express()
-var appServer = require('./app-server')
+// 需要使用body-parser模块,要不然post方法获取不到传递的参数
+var bodyParser = require('body-parser')
+// 设置接收参数的大小,主要针对于base64的图片
+app.use(bodyParser({limit: '50mb'}))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+
+// 引入session模块,判断登录情况
+var session = require('express-session')
+app.use(session({
+  secret: 'kingx_only',
+  cookie: {maxAge: 20 * 60 * 1000}
+}))
+
+var appUserServer = require('../server/app-user-server')
+var appArticleServer = require('../server/app-article-server')
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -58,7 +73,8 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-appServer(app)
+appUserServer(app)
+appArticleServer(app)
 
 module.exports = app.listen(port, function (err) {
   if (err) {

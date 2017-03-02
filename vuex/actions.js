@@ -2,8 +2,8 @@
  * Created by zhouxiong on 16/12/5.
  */
 
-export const displayArticles = ({commit}, type) => {
-    commit('DISPLAY_ARTICLES', type)
+export const displayArticles = ({commit}, payload) => {
+    commit('DISPLAY_ARTICLES', payload)
 }
 
 export const displayTopic = ({commit}, type) => {
@@ -20,4 +20,8 @@ export const changeLoginway = ({commit}, loginway) => {
 
 export const changeArticleFlag = ({commit}, flag) => {
     commit('CHANGE_ARTICLEFLAG', flag)
+}
+
+export const changeIsLogin = ({commit}, value) => {
+    commit('CHANGE_ISLOGIN', value)
 }

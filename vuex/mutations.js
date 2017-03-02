@@ -2,9 +2,9 @@
  * Created by zhouxiong on 16/12/16.
  */
 export default {
-    DISPLAY_ARTICLES (state, type) {
-        state.show = type
-        state.articles = state[type + 'Articles']
+    DISPLAY_ARTICLES (state, payload) {
+        state.show = payload.type
+        state.articles = payload.articleList
     },
     DISPLAY_TOPIC (state, type) {
         state.show = type
@@ -18,5 +18,8 @@ export default {
     },
     CHANGE_ARTICLEFLAG (state, flag) {
         state.articleFlag = flag
+    },
+    CHANGE_ISLOGIN (state, value) {
+        state.islogin = value
     }
 }

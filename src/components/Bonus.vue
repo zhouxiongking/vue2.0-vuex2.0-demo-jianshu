@@ -28,6 +28,7 @@
                       {{art.content_4}}<br>
                       {{art.content_5}}<br>
                       {{art.content_6}}<br>
+                      {{art.content_7}}<br>
                     </div>
                 </div>
                 <div class="author"></div>
@@ -63,7 +64,7 @@
   @media screen and (max-width: 1300px) {
     .bonus-container {
       width: 1110px;
-      transform: translateX(-130px);
+      transform: translateX(60px);
     }
   }
 
