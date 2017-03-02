@@ -9,8 +9,8 @@ import ArticleList from './components/ArticleList.vue'
 import Bonus from './components/Bonus.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
-import Topic from './components/Topic.vue'
-import topicActicle from './components/TopicArticle.vue'
+import Special from './components/Special.vue'
+import SpecialList from './components/SpecialList.vue'
 import Download from './components/Download.vue'
 import Article from './components/Article.vue'
 import writeArticle from './components/WriteArticle.vue'
@@ -32,10 +32,10 @@ const router = new VueRouter({
         }]
     }, {
         path: '/topic',
-        component: Topic,
+        component: Special,
         children: [{
             path: 'topic_article/:type',
-            component: topicActicle
+            component: SpecialList
         }]
     }, {
         path: '/article/:id',

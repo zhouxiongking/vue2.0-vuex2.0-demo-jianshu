@@ -20,6 +20,9 @@
                     </span>
                 </span>
             </nav>
+            <div class="hot-img">
+              <img src="../../static/images/hot-special.png">
+            </div>
             <div class="article-list">
                 <ul class="btn-group">
                     <li :class="{active: show === 'hot'}" @click="displayTopic('hot')">
@@ -61,5 +64,7 @@
     font-size:14px;
     margin-bottom:5px
   }
-
+  .hot-img {
+    margin-top: 20px;
+  }
 </style>

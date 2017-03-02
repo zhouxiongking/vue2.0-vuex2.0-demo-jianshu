@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="wrapper-body">
-        <!--<div class="note-detail" contenteditable="true" id="note-content" @keyup="editContent"></div>-->
+
         <quill-editor ref="myTextEditor"
                       v-model="note.content"
                       :config="editorOption"
@@ -111,7 +111,7 @@
   .note-editor {
     margin: 0 auto;
     width: 80%;
-    height: 100%;
+    height: 93%;
   }
 
   .note-editor textarea {
@@ -172,16 +172,11 @@
     outline: none;
   }
   .wrapper-body {
-    height: 75%;
-    padding-bottom: 8%;
-  }
-  .note-detail {
-    height: 100%;
-    outline: 0;
+    height: 77%;
+    padding-bottom: 9%;
   }
   .wrapper-footer {
-    position: absolute;
-    width: 70%;
+    margin: 0 auto;
   }
   .footer-div {
     margin: 0 auto;

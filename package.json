@@ -47,7 +47,7 @@
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
     "vue-loader": "^10.0.0",
-    "vue-quill-editor": "^1.1.0",
+    "vue-quill-editor": "^1.1.1",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.0",
     "vue-style-loader": "^1.0.0",

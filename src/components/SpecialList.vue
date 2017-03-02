@@ -1,13 +1,5 @@
 <template>
   <div class="topic_article_container">
-      <!--<div class="sequence-nav" v-if="show === 'recommend'">-->
-          <!--<a @click="sortContent('time'), change = 'new'"-->
-             <!--:class="{active: change === 'new'}">最新更新&nbsp;&nbsp;·</a>-->
-          <!--<a @click="change = 'hot'"-->
-             <!--:class="{active: change === 'hot'}">热门排序&nbsp;&nbsp;·</a>-->
-          <!--<a @click="sortContent('concern'), change = 'new'"-->
-             <!--:class="{active: change === 'concern'}">关注度排序</a>-->
-      <!--</div>-->
       <ul>
           <li v-for="content in topicArticles">
               <a href="" class="topic_article_img"><img :src="content.img"></a>
