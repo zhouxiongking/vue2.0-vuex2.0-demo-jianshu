@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex';
 
     export default {
         computed: mapGetters({
@@ -29,10 +29,10 @@
             topicArticles: 'getTopicArticles'
         }),
         mounted () {
-            this.$store.dispatch('displayTopic', 'hot')
-            this.$store.dispatch('changeArticleFlag', true)
+            this.$store.dispatch('displayTopic', 'hot');
+            this.$store.dispatch('changeArticleFlag', true);
         }
-    }
+    };
 </script>
 
 <style>

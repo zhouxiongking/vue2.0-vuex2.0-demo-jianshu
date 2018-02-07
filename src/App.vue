@@ -74,13 +74,13 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex';
 
   export default {
       data () {
           return {
               show: 'home'
-          }
+          };
       },
       computed: mapGetters({
           articleFlag: 'getArticleFlag',
@@ -88,21 +88,21 @@
       }),
       methods: {
           changeLoginway (loginway) {
-              this.$store.dispatch('changeLoginway', loginway)
+              this.$store.dispatch('changeLoginway', loginway);
           }
       },
       mounted () {
           // 发送请求,判断是否已经登录
           this.$http.get('/user/isLogin').then(function (response) {
-              console.log(response.body)
+              console.log(response.body);
               if (response.body === '已登录') {
-                  this.$store.dispatch('changeIsLogin', true)
+                  this.$store.dispatch('changeIsLogin', true);
               } else {
-                  this.$store.dispatch('changeIsLogin', false)
+                  this.$store.dispatch('changeIsLogin', false);
               }
-          })
+          });
       }
-  }
+  };
 </script>
 
 <style>

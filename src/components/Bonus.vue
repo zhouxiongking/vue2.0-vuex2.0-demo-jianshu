@@ -39,16 +39,16 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex';
 
     export default {
         computed: mapGetters({
             bonuses: 'getBonus'
         }),
         mounted () {
-            this.$store.dispatch('changeArticleFlag', true)
+            this.$store.dispatch('changeArticleFlag', true);
         }
-    }
+    };
 </script>
 
 <style>

@@ -40,38 +40,38 @@
                 show_result: false,
                 editorOption: {},
                 resMsg: ''
-            }
+            };
         },
         mounted () {
-            this.$store.dispatch('changeArticleFlag', false)
+            this.$store.dispatch('changeArticleFlag', false);
             // 发送请求,判断是否已经登录
             this.$http.get('/user/isLogin').then(function (response) {
-                console.log(response.body)
+                console.log(response.body);
                 if (response.body === '已登录') {
-                    this.$store.dispatch('changeIsLogin', true)
+                    this.$store.dispatch('changeIsLogin', true);
                 } else {
-                    this.$store.dispatch('changeIsLogin', false)
-                    this.$router.push('/login')
+                    this.$store.dispatch('changeIsLogin', false);
+                    this.$router.push('/login');
                 }
-            })
+            });
         },
         methods: {
             // 保存文章
             saveArticle () {
                 this.$http.post('/article/saveArticle', this.note).then(function (response) {
-                    var resData = JSON.parse(response.body)
+                    var resData = JSON.parse(response.body);
                     if (resData.status) {
-                        var _self = this
-                        _self.resMsg = '恭喜你!发表成功'
-                        _self.show_result = true
+                        var _self = this;
+                        _self.resMsg = '恭喜你!发表成功';
+                        _self.show_result = true;
                         setTimeout(function () {
-                            _self.$router.push('/article/' + resData.articleId)
-                        }, 1000)
+                            _self.$router.push('/article/' + resData.articleId);
+                        }, 1000);
                     } else {
-                        this.show_result = true
-                        this.resMsg = '发表失败'
+                        this.show_result = true;
+                        this.resMsg = '发表失败';
                     }
-                })
+                });
             },
             // editor 初始化
             onEditorReady (e) {},
@@ -80,7 +80,7 @@
             // editor失去焦点
             onEditorBlur (e) {}
         }
-    }
+    };
 </script>
 
 <style>

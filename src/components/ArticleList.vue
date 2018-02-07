@@ -25,18 +25,18 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex';
 
     export default {
         data () {
             return {
                 defaultUrl: 'https://p0.meituan.net/dpnewvc/3fa6b39cd8cf7b885614a60f792c89ff17972.jpg'
-            }
+            };
         },
         computed: mapGetters({
             articles: 'getArticles'
         })
-    }
+    };
 
 </script>
 

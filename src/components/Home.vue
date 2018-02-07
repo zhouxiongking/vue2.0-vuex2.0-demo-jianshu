@@ -67,7 +67,7 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex';
 
     export default {
         computed: mapGetters({
@@ -76,27 +76,27 @@
         methods: {
             displayArticles (type) {
                 // 发送请求,找出对应类型的文章
-                var url = '/article/list?type=' + type
+                var url = '/article/list?type=' + type;
                 this.$http.get(url).then(function (response) {
-                    var resData = JSON.parse(response.body)
+                    var resData = JSON.parse(response.body);
                     if (resData.status) {
-                        var articleList = resData.articleList
+                        var articleList = resData.articleList;
                         var payload = {
                             type: type,
                             articleList: articleList
-                        }
-                        this.$store.dispatch('displayArticles', payload)
+                        };
+                        this.$store.dispatch('displayArticles', payload);
                     }
-                })
+                });
             }
         },
         mounted () {
-            this.$store.dispatch('changeArticleFlag', true)
+            this.$store.dispatch('changeArticleFlag', true);
             // 默认加载热门文章
-            var type = this.$route.params.type
-            this.displayArticles(type)
+            var type = this.$route.params.type;
+            this.displayArticles(type);
         }
-    }
+    };
 
 </script>
 

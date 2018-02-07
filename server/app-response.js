@@ -3,6 +3,6 @@
  */
 
 module.exports = function (response, respObj) {
-    response.writeHead('Content-type', 'application/json')
-    response.end(respObj)
-}
+    response.writeHead(respObj.code, {'Content-type': 'application/json;charset=utf-8'});
+    response.end(JSON.stringify(respObj));
+};

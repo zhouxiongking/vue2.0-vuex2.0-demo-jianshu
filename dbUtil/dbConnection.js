@@ -2,16 +2,16 @@
  * Created by zhouxiong on 16/12/19.
  */
 
-var mysql = require('mysql')
+var mysql = require('mysql');
 
 var options = {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'XXX',
+    password: 'XXXXXXXX',
     database: 'jianshu'
-}
+};
 
-var connection = mysql.createConnection(options)
+var pool = mysql.createPool(options);
 
-module.exports = connection
+module.exports = pool;

@@ -1,26 +1,26 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 
-import store from '../vuex/store'
+import store from '../vuex/store';
 
-import App from './App'
-import ArticleList from './components/ArticleList.vue'
-import Bonus from './components/Bonus.vue'
-import Home from './components/Home.vue'
-import Login from './components/Login.vue'
-import Special from './components/Special.vue'
-import SpecialList from './components/SpecialList.vue'
-import Download from './components/Download.vue'
-import Article from './components/Article.vue'
-import writeArticle from './components/WriteArticle.vue'
+import App from './App';
+import ArticleList from './components/ArticleList.vue';
+import Bonus from './components/Bonus.vue';
+import Home from './components/Home.vue';
+import Login from './components/Login.vue';
+import Special from './components/Special.vue';
+import SpecialList from './components/SpecialList.vue';
+import Download from './components/Download.vue';
+import Article from './components/Article.vue';
+import writeArticle from './components/WriteArticle.vue';
 
-import VueQuillEditor from 'vue-quill-editor'
+import VueQuillEditor from 'vue-quill-editor';
 
-Vue.use(VueRouter)
-Vue.use(VueResource)
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
-Vue.use(VueQuillEditor)
+Vue.use(VueQuillEditor);
 
 const router = new VueRouter({
     routes: [{
@@ -56,7 +56,7 @@ const router = new VueRouter({
         path: '/*',
         redirect: '/home/article/hot'
     }]
-})
+});
 
 /* eslint-disable no-new */
 new Vue({
@@ -64,5 +64,5 @@ new Vue({
     router,
     store,
     render: h => h(App)
-})
+});
 

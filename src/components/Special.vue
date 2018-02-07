@@ -39,7 +39,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex';
 
     export default {
         computed: mapGetters({
@@ -47,13 +47,13 @@
         }),
         methods: {
             displayTopic (type) {
-                this.$store.commit('DISPLAY_TOPIC', type)
+                this.$store.commit('DISPLAY_TOPIC', type);
             }
         },
         mounted () {
-            this.$store.dispatch('changeArticleFlag', true)
+            this.$store.dispatch('changeArticleFlag', true);
         }
-    }
+    };
 </script>
 
 <style>

@@ -75,7 +75,7 @@
 
 </template>
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex';
     export default {
         data () {
             return {
@@ -84,7 +84,7 @@
                 result: '',
                 show_result: false,
                 login: {}
-            }
+            };
         },
         computed: mapGetters({
             loginway: 'getLoginway'
@@ -92,45 +92,45 @@
         methods: {
             // 切换注册或者登陆状态
             changeLogin (loginway) {
-                this.$store.dispatch('changeLoginway', loginway)
+                this.$store.dispatch('changeLoginway', loginway);
             },
             // 注册
             doRegist () {
                 this.$http.post('/user/register', this.user).then(function (response) {
-                    this.dealResponse(response)
-                })
+                    this.dealResponse(response);
+                });
             },
             // 登陆
             doLogin () {
-                var url = '/user/login?email=' + this.login.email + '&password=' + this.login.password
+                var url = '/user/login?email=' + this.login.email + '&password=' + this.login.password;
                 this.$http.get(url).then(function (response) {
-                    this.dealResponse(response)
-                })
+                    this.dealResponse(response);
+                });
             },
             // 处理响应
             dealResponse (response) {
-                var self = this
-                self.show_result = true
-                var resData = JSON.parse(response.body)
-                this.result = resData.message
+                var self = this;
+                self.show_result = true;
+                var resData = JSON.parse(response.body);
+                this.result = resData.message;
                 if (resData.status) {
                     setTimeout(function () {
-                        self.show_result = false
+                        self.show_result = false;
                         // 注册成功后,直接自动登录到主页
-                        self.$router.push('/home/article/hot')
-                        self.$store.dispatch('changeIsLogin', true)
-                    }, 1000)
+                        self.$router.push('/home/article/hot');
+                        self.$store.dispatch('changeIsLogin', true);
+                    }, 1000);
                 } else {
                     setTimeout(function () {
-                        self.show_result = false
-                    }, 1000)
+                        self.show_result = false;
+                    }, 1000);
                 }
             }
         },
         mounted () {
-            this.$store.dispatch('changeArticleFlag', true)
+            this.$store.dispatch('changeArticleFlag', true);
         }
-    }
+    };
 </script>
 <style>
   .login-form{

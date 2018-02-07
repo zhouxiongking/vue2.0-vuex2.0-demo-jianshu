@@ -2,14 +2,14 @@
  * Created by zhouxiong on 16/12/5.
  */
 
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-import * as getters from './getters'
-import * as actions from './actions'
-import mutations from './mutations'
+import * as getters from './getters';
+import * as actions from './actions';
+import mutations from './mutations';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
     show: 'hot',
@@ -188,11 +188,11 @@ const state = {
             bg: 'url(../static/images/bonus_12.jpg)'
         }
     ]
-}
+};
 
 export default new Vuex.Store({
     state,
     mutations,
     getters,
     actions
-})
+});
