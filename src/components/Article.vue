@@ -60,7 +60,7 @@
           // 加载出需要展示出来的文章article
           var id = this.$route.params.id;
           this.$http.get('/article/loadArticle?articleId=' + id).then(function (response) {
-              var resData = JSON.parse(response.body);
+              var resData = response.body;
               if (resData.status) {
                   this.article = resData.article;
                   this.articleLength = this.article.content.length;

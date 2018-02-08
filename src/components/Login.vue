@@ -111,7 +111,7 @@
             dealResponse (response) {
                 var self = this;
                 self.show_result = true;
-                var resData = JSON.parse(response.body);
+                var resData = response.body;
                 this.result = resData.message;
                 if (resData.status) {
                     setTimeout(function () {

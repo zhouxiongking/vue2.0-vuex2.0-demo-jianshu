@@ -78,7 +78,7 @@
                 // 发送请求,找出对应类型的文章
                 var url = '/article/list?type=' + type;
                 this.$http.get(url).then(function (response) {
-                    var resData = JSON.parse(response.body);
+                    var resData = response.body;
                     if (resData.status) {
                         var articleList = resData.articleList;
                         var payload = {
